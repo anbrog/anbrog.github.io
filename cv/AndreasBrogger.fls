@@ -1,8 +1,8 @@
-PWD /Users/work/Erasmus Universiteit Rotterdam Dropbox/Andreas Brogger/1 Projects/webtest/cv
+PWD /Users/work/Erasmus Universiteit Rotterdam Dropbox/Andreas Brogger/1 Projects/W web and CV/cv
 INPUT /usr/local/texlive/2023/texmf.cnf
 INPUT /usr/local/texlive/2023/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT /Users/work/Erasmus Universiteit Rotterdam Dropbox/Andreas Brogger/1 Projects/webtest/cv/AndreasBrogger.tex
+INPUT /Users/work/Erasmus Universiteit Rotterdam Dropbox/Andreas Brogger/1 Projects/W web and CV/cv/AndreasBrogger.tex
 OUTPUT AndreasBrogger.log
 INPUT ./res.cls
 INPUT ./res.cls
