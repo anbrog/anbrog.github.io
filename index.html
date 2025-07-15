@@ -94,12 +94,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     top: 50px;
     }
   #home {background-color: #D3D3D3; padding-bottom:10%; height:1000px; /*color: #fff; background-color: #1E88E5; */}
-  #jobmarketpaper {padding-top:50px/*;background-color: #DCDCDC;/* height:500px; color: #fff; background-color: #673ab7;*/}
-  #research {padding-top:00px/*;background-color: #DCDCDC;/* height:500px; color: #fff; background-color: #673ab7;*/}
+  #research {padding-top:50px/*;background-color: #DCDCDC;/* height:500px; color: #fff; background-color: #673ab7;*/}
   #past_news {padding-top:0px; padding-bottom:0px;}
   #cv {padding-top:50px;/*background-color: #DCDCDC;/* ;height:500px; color: #fff; background-color: #ff9800;*/}
-  #research_statement {padding-top:50px;/*background-color: #DCDCDC;/* ;height:500px; color: #fff; background-color: #ff9800;*/}
   #contact {padding-top:50px; padding-bottom:50px;/*background-color: #DCDCDC;/*height:500px; color: #fff; */}
+  #news {padding-top:50px;}
+  #data {padding-top:50px;}
   </style>
   
   <style>
@@ -115,7 +115,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <div id="home"  class="container-fluid fill" style="height:560px" align="left">
     <h1>Andreas Brøgger</h1>
     <br />
-    <img src="billede2.jpeg" alt="Profile Photo" style="width:220px;" class="img-responsive">
+    <img src="images/billede3.jpg" alt="Profile Photo" style="width:220px;" class="img-responsive">
     <p style="margin:10px;"></p>
     <!-- <p>Welcome to my personal webpage!</p> -->
     <p><b>Welcome!</b></p> <p>An Assistant Professor of Finance, I research Asset Management, Asset Pricing, and Sustainable Finance.</p>
@@ -126,7 +126,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 </head>
 
-<body data-spy="scroll" data-target=".navbar" data-offset="50">
+<body data-spy="scroll" data-target=".navbar" data-offset="00">
     
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WH96J9C"
@@ -149,11 +149,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <ul class="nav navbar-nav">
           <li><a href="#home" data-toggle="collapse" data-target=".navbar-collapse.in" onclick="dataLayer.push({'event': 'buttonHome-click'});">Home</a></li>
           <li><a href="#news" data-toggle="collapse" data-target=".navbar-collapse.in" onclick="dataLayer.push({'event': 'buttonNews-click'});">News</a></li>
-		  <li><a href="#research" data-toggle="collapse" data-target=".navbar-collapse.in" onclick="dataLayer.push({'event': 'buttonResearch-click'});">Research</a></li>
-		  <li><a href="#data" data-toggle="collapse" data-target=".navbar-collapse.in" onclick="dataLayer.push({'event': 'buttonData-click'});">Data</a></li>
+		      <li><a href="#research" data-toggle="collapse" data-target=".navbar-collapse.in" onclick="dataLayer.push({'event': 'buttonResearch-click'});">Research</a></li>
+		      <li><a href="#data" data-toggle="collapse" data-target=".navbar-collapse.in" onclick="dataLayer.push({'event': 'buttonData-click'});">Data</a></li>
           <li><a href="cv/AndreasBrogger.pdf" onclick="dataLayer.push({'event': 'buttonCV-click'});">CV</a></li>
-          <li><a href="ResearchStatement.pdf" target="_blank" onclick="dataLayer.push({'event': 'buttonRS-click'});">Research Statement</a></li>
-		  <li><a href="#contact" data-toggle="collapse" data-target=".navbar-collapse.in" onclick="dataLayer.push({'event': 'buttonContact-click'});">Contact</a></li>
+		      <li><a href="#contact" data-toggle="collapse" data-target=".navbar-collapse.in" onclick="dataLayer.push({'event': 'buttonContact-click'});">Contact</a></li>
           <!-- currently not needed but maybe use for different reserach articles <li class="dropdown"><a class="dropdown
             -toggle" data-toggle="dropdown" href="#">Section 4 <span class="caret"></span></a>
             <ul class="dropdown-menu">
@@ -230,7 +229,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <div class="row">
       <div class="col-md-6" style = "max-width: 550px;">  
           <a href="https://papers.ssrn.com/abstract=4241164" target="_blank" onclick="dataLayer.push({'event': 'buttonPaperBufferFig-click'});">
-           <img src="equation.svg" alt="The Future of Emissions"  class="img-responsive" width="500px">
+           <img src="images/equation.svg" alt="The Future of Emissions"  class="img-responsive" width="500px">
           </a>
           <h5> <i style="font-size:small"> Real Impact is made simple and measurable by an Emission Future's negative dollar return.</i> </h5>
       </div>  
@@ -250,7 +249,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div class="row">
       <div class="col-md-6" style = "max-width: 550px;">
           <a href="https://andreasbrogger.com/SkillsAndSentimentInSustainableInvesting.pdf" target="_blank" onclick="dataLayer.push({'event': 'buttonPaperESGFigure-click'});">
-          <img src="esg_returns.svg" alt="esg returns" class="img-responsive" width="500px">
+          <img src="images/esg_returns.svg" alt="esg returns" class="img-responsive" width="500px">
           </a>
           <h5> <i style="font-size:small"> Investors with flexible mandates have outperformed in their ESG investments since the onset of the financial crisis. Figure shows cumulative excess returns within the top quantile of flexible ownership of stocks with different ESG levels.</i> </h5>
       </div>
@@ -302,7 +301,7 @@ by the Review of Financial Studies (RFS). </i></h5>
       <!--
         <div class="col-md-6" style = "max-width: 550px;">
             <a href="https://andreasbrogger.com/bologna.pdf" target="_blank">
-            <img src="bologna.svg" alt="Slides"  class="img-responsive" width="500px">
+            <img src="images/bologna.svg" alt="Slides"  class="img-responsive" width="500px">
         </div>
       -->
       <div class="col-md-6 grow">
@@ -333,7 +332,7 @@ by the Review of Financial Studies (RFS). </i></h5>
           <div class="collapse" id="corporateAssetPricingContent">
             <div class="col-md-6" style = "max-width: 550px;">
               <a href="https://andreasbrogger.com/CorporateAssetPricing.pdf" target="_blank" onclick="dataLayer.push({'event': 'buttonPaperBufferFig-click'});">
-              <img src="iivol_cy_scatter.svg" alt="Corporate Asset Pricing"  class="img-responsive" width="500px">
+              <img src="images/iivol_cy_scatter.svg" alt="Corporate Asset Pricing"  class="img-responsive" width="500px">
               </a>
               <h5> <i style="font-size:small"> Corporations' idiosyncratic risk predicts the convenience yield.</i> </h5>
             </div>
@@ -357,7 +356,7 @@ by the Review of Financial Studies (RFS). </i></h5>
           <div class="collapse" id="macroprudentialBuffersContent">
             <div class="col-md-6" style="max-width: 550px;">
               <a href="https://papers.ssrn.com/abstract=3557231" target="_blank" onclick="dataLayer.push({'event': 'buttonPaperBufferFig-click'});">
-              <img src="buffers.svg" alt="Fire Sales"  class="img-responsive" width="500px">
+              <img src="images/buffers.svg" alt="Fire Sales"  class="img-responsive" width="500px">
               </a>
               <h5> <i style="font-size:small"> When countries increase their macroprudential buffer it increases the price of risk in their respective economies.</i> </h5>
             </div>
@@ -382,7 +381,7 @@ by the Review of Financial Studies (RFS). </i></h5>
           <div class="collapse" id="fireSalesContent">
             <div class="col-md-6" style="max-width: 550px;">
               <a href="https://papers.ssrn.com/abstract=3301344" target="_blank" onclick="dataLayer.push({'event': 'buttonPaperFireSaleFig-click'});">
-              <img src="firesales.svg" alt="Fire Sales"  class="img-responsive" width="500px">
+              <img src="images/firesales.svg" alt="Fire Sales"  class="img-responsive" width="500px">
               </a>
               <h5> <i style="font-size:small"> Systems of financial institutions may go from firm to fragile fast. Log scale plot of system equity lost from a small shock for different price impacts. The dashed vertical line indicates the limit of fire sales calculated in the paper. The full line indicates the baseline value.</i> </h5>
             </div>
@@ -421,13 +420,6 @@ by the Review of Financial Studies (RFS). </i></h5>
     <p></p>
 </div>
 
-<!-- Section: RS -->
-<div id="research_statement" class="container-fluid">
-    <a href="ResearchStatement.pdf" target="_blank" onclick="dataLayer.push({'event': 'buttonRSBottom-click'});">
-      <h1>Research Statement</h1>  </a>
-    <p></p>
-</div>
-
 <!-- Footer --> 
 <div id="contact" class="container-fluid centeredContent">
       <h2>Contact</h2>  
@@ -447,7 +439,7 @@ by the Review of Financial Studies (RFS). </i></h5>
 
 
 
-    <!-- Menu Toggle Script -->
+<!-- Menu Toggle Script -->
     <!-- 
     <script>
     $("#menu-toggle").click(function(e) {
