@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.8.24)  14 JUL 2025 17:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.8.24)  28 SEP 2025 13:12
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -336,12 +336,7 @@ Package fancyhdr Warning: \headheight is too small (0.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-13.59999pt}.
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 349--352
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 355--356
+Underfull \hbox (badness 10000) in paragraph at lines 351--354
 
  []
 
@@ -388,7 +383,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 369--370
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 479--480
+Underfull \hbox (badness 10000) in paragraph at lines 371--372
 
  []
 
@@ -399,6 +394,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 481--482
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 483--484
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 485--486
 
  []
 
@@ -432,15 +432,15 @@ Package rerunfilecheck Info: File `AndreasBrogger.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 9180 strings out of 476025
- 147994 string characters out of 5790017
+ 9181 strings out of 476025
+ 148002 string characters out of 5790017
  1866388 words of memory out of 5000000
- 29517 multiletter control sequences out of 15000+600000
+ 29518 multiletter control sequences out of 15000+600000
  517184 words of font info for 49 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,12n,80p,1014b,591s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,13n,80p,1014b,591s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/eurosym/feymr10.pfb>
-Output written on AndreasBrogger.pdf (6 pages, 119176 bytes).
+Output written on AndreasBrogger.pdf (6 pages, 119489 bytes).
 PDF statistics:
  94 PDF objects out of 1000 (max. 8388607)
  73 compressed objects within 1 object stream
