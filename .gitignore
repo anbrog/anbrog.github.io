@@ -4,3 +4,4 @@
 *.fls
 *.out
 *.gz
+.history/
