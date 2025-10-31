@@ -68,6 +68,24 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
  });
 </script>
 
+<script language="javascript">
+$(function() {
+  // Set dynamic offset for navbar affix based on 100svh
+  var homeHeight = window.innerHeight * 0.95; // 95% of viewport height
+  $('.navbar').affix({
+    offset: {
+      top: homeHeight
+    }
+  });
+  
+  // Update offset on window resize
+  $(window).on('resize', function() {
+    var homeHeight = window.innerHeight * 0.95;
+    $('.navbar').data('bs.affix').options.offset.top = homeHeight;
+  });
+});
+</script>
+
   <!-- Bootstrap core CSS -->
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
  <!-- Custom styles for this template -->
@@ -116,7 +134,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- The scrollable area -->
 
 <!-- Section 1 -->
-<div id="home"  class="container-fluid fill" style="height:620px" align="left">
+<div id="home"  class="container-fluid fill" style="height:100svh" align="left">
     <h1>Andreas Brøgger</h1>
     <br />
     <img src="images/billede3.jpg" alt="Profile Photo" style="width:282px;" class="img-responsive">
@@ -138,7 +156,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <!-- End Google Tag Manager (noscript) -->
     
 <!-- The navbar - The <a> elements are used to jump to a section in the scrollable area -->
-<nav class="navbar navbar-inverse navbar-static-top" data-spy="affix" data-offset-top="559">
+<nav class="navbar navbar-inverse navbar-static-top" data-spy="affix">
   <div class="container-fluid">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
