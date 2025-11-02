@@ -39,24 +39,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   
-   <!-- script added by Andreas to get navbar to work  
-  <script language="javascript">
-  $(function() {
-    var $attribute = $('[data-smart-affix]');
-    $attribute.each(function() {
-      $(this).affix({
-        offset: {
-          top: $(this).offset().top,
-        }
-      })
-    })
-    $(window).on("resize", function() {
-      $attribute.each(function() {
-        $(this).data('bs.affix').options.offset.top = $(this).offset().top
-      })
-    })
-  });
-</script> -->
 <script language="javascript">
  $(function(){ 
      var navMain = $(".navbar-collapse"); // avoid dependency on #id
@@ -140,14 +122,14 @@ $(function() {
     width: auto; /* Maintain aspect ratio */
     }
     /* Responsive hero section heights to ensure content visibility */
-    @media (max-width: 600px) {
+    @media (max-width: 400px) {
       #home {
         min-height: 120svh !important; /* Larger minimum height for mobile */
       }
     }
-    @media (min-width: 768px) and (max-width: 991px) {
+    @media (min-width: 400px) and (max-width: 600px) {
       #home {
-        min-height: 100svh !important; /* Medium increase for tablets */
+        min-height: 110svh !important; /* Medium increase for tablets */
       }
     }
     .affix ~ .container-fluid {
