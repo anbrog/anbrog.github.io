@@ -139,11 +139,22 @@ $(function() {
     max-height: 50vh; /* Maximum height of half the viewport height */
     width: auto; /* Maintain aspect ratio */
     }
+    /* Responsive hero section heights to ensure content visibility */
+    @media (max-width: 600px) {
+      #home {
+        min-height: 120svh !important; /* Larger minimum height for mobile */
+      }
+    }
+    @media (min-width: 768px) and (max-width: 991px) {
+      #home {
+        min-height: 100svh !important; /* Medium increase for tablets */
+      }
+    }
     .affix ~ .container-fluid {
     position: relative;
     top: 50px;
     }
-  #home {background-color: #D3D3D3; padding-bottom:10%; height:1000px; /*color: #fff; background-color: #1E88E5; */}
+  #home {background-color: #D3D3D3; padding-bottom:10%; min-height: 100svh; /*color: #fff; background-color: #1E88E5; */}
   #research {padding-top:50px/*;background-color: #DCDCDC;/* height:500px; color: #fff; background-color: #673ab7;*/}
   #past_news {padding-top:0px; padding-bottom:0px;}
   #cv {padding-top:50px;/*background-color: #DCDCDC;/* ;height:500px; color: #fff; background-color: #ff9800;*/}
@@ -167,7 +178,7 @@ $(function() {
 <!-- The scrollable area -->
 
 <!-- Section 1 -->
-<div id="home"  class="container-fluid fill" style="height:100svh" align="left">
+<div id="home"  class="container-fluid fill" style="min-height:100svh;" align="left">
   <div class="row">
     <div class="col-md-2"></div>
     <div class="col-md-4">
