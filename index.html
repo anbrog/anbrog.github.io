@@ -106,6 +106,25 @@ $(function() {
     .navbar {
     margin-bottom: 0px;
     }
+    .navbar-inverse {
+    background-color: #8B4513; /* Saddle brown for entire navbar */
+    border-color: #7A3F12; /* Slightly darker brown for border */
+    }
+    .navbar-header {
+    background-color: #8B4513; /* Saddle brown - complements light blue */
+    }
+    h1 {
+    color: #8B4513; /* Matching brown for headers */
+    }
+    h2 {
+    color: #8B4513; /* Matching brown for headers */
+    }
+    h3 {
+    color: #8B4513; /* Matching brown for headers */
+    }
+    b, strong {
+    color: #8B4513; /* Matching brown for bold text */
+    }
     .affix ~ .container-fluid {
     position: relative;
     top: 50px;
@@ -135,17 +154,29 @@ $(function() {
 
 <!-- Section 1 -->
 <div id="home"  class="container-fluid fill" style="height:100svh" align="left">
-    <h1>Andreas Brøgger</h1>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-4">
+      <h1>Andreas Brøgger</h1>
+    </div>
+  </div>  
     <br />
-    <img src="images/billede3.jpg" alt="Profile Photo" style="width:282px;" class="img-responsive">
-    <p style="margin:10px;"></p>
-    <!-- <p>Welcome to my personal webpage!</p> -->
-    <p><b>Welcome!</b></p> <p>I'm an Assistant Professor of Finance at RSM, Erasmus University</p> 
-    <p> I conduct research on <a href="#research" onclick="dataLayer.push({'event': 'buttonResearch-click'});">Asset Management, Asset Pricing, and Sustainable Finance <span class="glyphicon glyphicon-chevron-down" style="font-size: 0.8em;"></span></a></p>
-    <p> Also, I co-organize the <a href="#workshop" onclick="dataLayer.push({'event': 'buttonResearch-click'});">Dutch Sustainable Finance Workshop <span class="glyphicon glyphicon-chevron-down" style="font-size: 0.8em;"></span></a></p> 
-    <p> Follow my <a href="#news" onclick="dataLayer.push({'event': 'buttonResearch-click'});"> research Poisson process <span class="glyphicon glyphicon-chevron-down" style="font-size: 0.8em;"></span></a></p>
-    <!-- <p> My research on <a href="#research" onclick="dataLayer.push({'event': 'buttonResearch-click'});">making Impact Investing impactful <span class="glyphicon glyphicon-chevron-down" style="font-size: 0.8em;"></span></a></p> -->
-    <!--  <p>Further down you can read my job market paper, view my other research, access my data, and find my curriculum vitae.</p> -->
+    <div class="row">
+        <div class="col-md-2"></div> <!-- Empty column for left spacing -->
+        <div class="col-md-4">
+            <img src="images/billede3.jpg" alt="Profile Photo" class="img-responsive">
+        </div>
+        <div class="col-md-6">
+            <p style="margin:10px;"></p>
+            <!-- <p>Welcome to my personal webpage!</p> -->
+            <p><b>Welcome!</b></p> <p>I'm an Assistant Professor of Finance at RSM, Erasmus University</p> 
+            <p> I conduct research on <a href="#research" onclick="dataLayer.push({'event': 'buttonResearch-click'});">Asset Management, Asset Pricing, and Sustainable Finance <span class="glyphicon glyphicon-chevron-down" style="font-size: 0.8em;"></span></a></p>
+            <p> Also, I co-organize the <a href="#workshop" onclick="dataLayer.push({'event': 'buttonResearch-click'});">Dutch Sustainable Finance Workshop <span class="glyphicon glyphicon-chevron-down" style="font-size: 0.8em;"></span></a></p> 
+            <p> Follow my <a href="#news" onclick="dataLayer.push({'event': 'buttonResearch-click'});"> research Poisson process <span class="glyphicon glyphicon-chevron-down" style="font-size: 0.8em;"></span></a></p>
+            <!-- <p> My research on <a href="#research" onclick="dataLayer.push({'event': 'buttonResearch-click'});">making Impact Investing impactful <span class="glyphicon glyphicon-chevron-down" style="font-size: 0.8em;"></span></a></p> -->
+            <!--  <p>Further down you can read my job market paper, view my other research, access my data, and find my curriculum vitae.</p> -->
+        </div>
+    </div>
 </div>
 
 </head>
@@ -209,12 +240,12 @@ $(function() {
 
 <!-- Section: Past News -->
 <div id="past_news" class="container-fluid">
-    <h2>
+    <h3>
         <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#pastNewsContent" aria-expanded="false" aria-controls="pastNewsContent" style="padding: 0; font-size: inherit; color: inherit; text-decoration: none; border: none; background: none; font-weight: inherit; text-align: left;">
             Past News 
             <span class="glyphicon glyphicon-chevron-down" id="pastNewsIcon" style="font-size: 0.7em; color: #888; margin-left: 10px;"></span>
         </button>
-    </h2>
+    </h3>
     <div class="collapse" id="pastNewsContent">
         <ul>
             <li>March 2024: I have been invited as a <a href="https://www.netspar.nl">Netspar</a> research fellow.</li>   
@@ -234,7 +265,6 @@ $(function() {
     <h1>Research</h1>
     <p>Here you will find my current research.</p>
     <h2 id = "working-papers">Working Papers</h2>
-
 
     <div id="paper-fomo" class="row">
             <div class="col-md-6" style = "max-width: 550px;">  
