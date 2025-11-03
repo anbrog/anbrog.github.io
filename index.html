@@ -25,6 +25,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- , shrink-to-fit=no -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="images/billede3.jpg">
+  <link rel="shortcut icon" type="image/jpeg" href="images/billede3.jpg">
   <!--Next four added for default social media image --> 
   <meta property='og:title' content='Andreas Brogger'/>
   <meta property='og:description' content='My personal webpage features my Research, Data, and CV'/>
@@ -70,8 +73,7 @@ $(function() {
 
   <!-- Bootstrap core CSS -->
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
- <!-- Custom styles for this template -->
-  <!-- <link href="css/simple-sidebar.css" rel="stylesheet">  -->
+  <!-- Custom modifications made by me for this template -->
   <style>
     body {
       height: 100%;
@@ -98,12 +100,31 @@ $(function() {
     .navbar-inverse .navbar-brand {
     color: #fff !important; /* White brand text */
     }
+    .navbar-inverse .navbar-brand:hover,
+    .navbar-inverse .navbar-brand:focus {
+    color: #A0653A !important; /* Light brown text on hover */
+    }
     .navbar-inverse .navbar-nav > li > a {
     color: #fff !important; /* White navigation links */
     }
     .navbar-inverse .navbar-nav > li > a:hover,
     .navbar-inverse .navbar-nav > li > a:focus {
-    color: #f0f0f0 !important; /* Light grey on hover */
+    color: #A0653A !important; /* Light brown text on hover */
+    }
+    .navbar-inverse .navbar-toggle {
+    border-color: #A0653A !important; /* Lighter brown for burger menu border */
+    }
+    .navbar-inverse .navbar-toggle:hover,
+    .navbar-inverse .navbar-toggle:focus,
+    .navbar-inverse .navbar-toggle:active {
+    background-color: #A0653A !important; /* Lighter brown for hover/click states */
+    border-color: #A0653A !important;
+    }
+    .navbar-inverse .navbar-toggle .icon-bar {
+    background-color: #fff !important; /* White burger menu lines */
+    }
+    .navbar-inverse .navbar-collapse {
+    border-color: #A0653A !important; /* Light brown border for collapsed menu */
     }
     h1, h2, h3, h4, b { /* also for strong? */
     color: #8B4513; /* Matching brown for headers */
@@ -558,7 +579,7 @@ by the Review of Financial Studies (RFS).  </i></h5>
 <!-- Section: CV -->
 <div id="cv" class="container-fluid">
     <a href="cv/AndreasBrogger.pdf"  onclick="dataLayer.push({'event': 'buttonCVBottom-click'});">
-      <h1>CV</h1>  </a>
+      <h1 style="color: #337AB7;">CV</h1>  </a>
     <p><br> <a href="#research" onclick="dataLayer.push({'event': 'buttonResearch-click'});">Back to my research <span class="glyphicon glyphicon-chevron-up" style="font-size: 0.8em;"></span></a></p>
 </div>
 
