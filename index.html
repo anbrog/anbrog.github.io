@@ -193,6 +193,95 @@ $(function() {
   #working-papers {padding-top:50px;}
   #discussions {padding-top:50px;}
   #teaching {padding-top:50px;}
+  
+  /* Larger hero text on screens bigger than mobile */
+  @media (min-width: 768px) { /* Bootstrap sm and up */
+    #home h1 { font-size: 42px; }
+    #home p { font-size: 20px; }
+  }
+  @media (min-width: 992px) { /* Bootstrap md and up */
+    #home h1 { font-size: 42px; }
+    #home p { font-size: 22px; }
+  }
+
+  /* Larger News text on medium and up screens */
+  @media (min-width: 768px) {
+    #news ul li,
+    #news p { font-size: 16px; line-height: 1.66; }
+  }
+  @media (min-width: 992px) {
+    #news ul li,
+    #news p { font-size: 18px; line-height: 2; }
+  }
+
+  /* Modern minimalist News list */
+  #news .news-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    color: #333; /* override global ul grey */
+  }
+  #news .news-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 12px 0;
+    border-bottom: 1px solid #e9e9e9;
+  }
+  #news .news-item:last-child { border-bottom: none; }
+
+  #news .news-item time {
+    flex: 0 0 140px; /* fixed date column */
+    font-weight: 200;
+    color: #A0653A; /* light brown to match navbar accents */
+    font-variant-numeric: tabular-nums; /* consistent number width for alignment */
+    line-height: 1.6;
+  }
+  #news .news-item .news-text {
+    flex: 1;
+    line-height: 1.66;
+  }
+
+  /* Stack on phones */
+  @media (max-width: 767px) {
+    #news .news-item { flex-direction: column; }
+    #news .news-item time { flex: none; margin-bottom: 4px; }
+  }
+
+  /* Past News - compact and lighter */
+  #past_news .news-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    color: #777;
+    font-size: 14px;
+  }
+  #past_news .news-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid #efefef;
+  }
+  #past_news .news-item:last-child { border-bottom: none; }
+
+  #past_news .news-item time {
+    flex: 0 0 120px;
+    font-weight: 300;
+    color: #c89263;
+    font-variant-numeric: tabular-nums;
+    line-height: 1.35;
+  }
+  #past_news .news-item .news-text {
+    flex: 1;
+    line-height: 1.4;
+    color: #777;
+  }
+
+  @media (max-width: 767px) {
+    #past_news .news-item { flex-direction: column; }
+    #past_news .news-item time { flex: none; margin-bottom: 4px; }
+  }
   </style>
   
   <style>
@@ -208,7 +297,7 @@ $(function() {
 <div id="home"  class="container-fluid fill" style="min-height:100svh;" align="left">
   <div class="row">
     <!--<div class="col-md-2"></div> -->
-    <div class="col-md-offset-1  col-md-3 text-center">
+    <div class="col-md-5 text-center">
       <h1>Andreas Brøgger</h1>
     </div>
     <div class="col-md-1"></div>
@@ -220,13 +309,13 @@ $(function() {
             <img src="images/billede3.jpg" alt="Profile Photo" class="img-responsive center-block">
         </div>
         <!-- <div class="col-md-1"></div> -->
-        <div class="col-md-offset-1 col-md-6">
-            <p style="margin:10px;"></p>
+        <div class="col-md-7 col-sm-12" style="padding-left: 20px;">
+            <p style="margin:0px;"></p>
             <!-- <p>Welcome to my personal webpage!</p> -->
             <p ><b>Welcome!</b></p> <p>I'm an Assistant Professor of Finance at RSM, Erasmus University</p> 
             <p> I conduct research on <a href="#research" onclick="gtag('event', 'buttonResearch-click');">Asset Management, Asset Pricing, and Sustainable Finance <span class="glyphicon glyphicon-chevron-down" style="font-size: 0.8em;"></span></a></p>
             <p> Also, I co-organize the <a href="#workshop" onclick="gtag('event', 'buttonResearch-click');">Dutch Sustainable Finance Workshop <span class="glyphicon glyphicon-chevron-down" style="font-size: 0.8em;"></span></a></p> 
-            <p> Browse my <a href="cv/AndreasBrogger.pdf" onclick="gtag('event', 'buttonCV-click');">CV</a> and follow my <a href="#news" onclick="gtag('event', 'buttonNews-click');"> research Poisson process <span class="glyphicon glyphicon-chevron-down" style="font-size: 0.8em;"></span></a></p>
+            <p> Browse my <b><a href="cv/AndreasBrogger.pdf" onclick="gtag('event', 'buttonCV-click');">CV</a></b> and follow my <a href="#news" onclick="gtag('event', 'buttonNews-click');"> research Poisson process <span class="glyphicon glyphicon-chevron-down" style="font-size: 0.8em;"></span></a></p>
             <!-- <p> My research on <a href="#research" onclick="gtag('event', 'buttonResearch-click');">making Impact Investing impactful <span class="glyphicon glyphicon-chevron-down" style="font-size: 0.8em;"></span></a></p> -->
             <!--  <p>Further down you can read my job market paper, view my other research, access my data, and find my curriculum vitae.</p> -->
         <div class="col-md-2"></div>
@@ -277,16 +366,65 @@ $(function() {
 <div id="news" class="container-fluid">
     <h1>News</h1>
     <p></p>
-    <ul> 
-        <li> December 4 2025: I will speak on a panel on my paper on <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5302515">FOMO and Concentration Risk </a> at the Investment & Pensions Europe (IPE) <a href="https://ipe.swoogo.com/awards2025/">Conference and Awards 2025</a>.</li>
-        <li> November 2025: New podcast on my paper on <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5302515">FOMO and Concentration Risk</a>. Listen here: <a href="https://www.netspar.nl/kennisplein/wat-zijn-de-financiele-consequenties-van-geconcentreerde-beleggingsportefeuilles/">Netspar Podcast (in Dutch)</a>!</li>
-        <li> November 2025: I've been nominated for the Mariëtte Kaandorp Prize for Excellence in Thesis Mentoring</a>. </li>
-        <li> September-October 2025: I've presented my paper on <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4241164">Future of Emissions</a> at ABN AMRO, Erasmus University, and Stockholm School of Economics.</li>
-        <li>July 2025: <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3531312">Updated Paper!</a> We now show the drivers of outperformance and a new ESG stock purchase test in <a href="#paper-skills">Skills and Sentiment in Sustainable Finance</a> paper.</li>
-        <li>June 2025: <b><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5302515">New Paper!</a></b> Common perception is that you need 25 stocks for full diversification, we show you need 250!
-          <a href="#paper-fomo">Take a look. <span class="glyphicon glyphicon-chevron-down" style="font-size: 0.8em;"></span></a></li> 
-        <li>May 2025: I am very excited to be hosting the <a href="https://sites.google.com/view/dutchsustainablefinancenetwork">Dutch Sustainable Finance</a> Workshop. <a href="doc/Dutch_Sustainable_Finance_Programme_with_papers_v-final.pdf">Check out the program here!</a></li> 
-        <li>May 2025: I presented my paper on the <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4241164">Future of Emissions</a> at the  <a href="https://sfs.org/sfs-cavalcade-north-america-2025/">SFS Cavalcade North America conference</a>.</li> 
+
+    <ul class="news-list">
+      <li class="news-item">
+        <time datetime="2025-12-04">Dec 2025</time>
+        <span class="news-text">
+          I spoke on a panel showcasing my paper <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5302515">FOMO and Concentration Risk</a> at the Investment &amp; Pensions Europe (IPE) <a href="https://ipe.swoogo.com/awards2025/">Conference and Awards 2025</a>.
+        </span>
+      </li>
+
+      <li class="news-item">
+        <time datetime="2025-11-20">Nov</time>
+        <span class="news-text">
+          New podcast on my paper on <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5302515">FOMO and Concentration Risk</a>. Listen here: <a href="https://www.netspar.nl/kennisplein/wat-zijn-de-financiele-consequenties-van-geconcentreerde-beleggingsportefeuilles/">Netspar Podcast (in Dutch)</a>!
+        </span>
+      </li>
+
+      <li class="news-item">
+        <time datetime="2025-11-10">Nov</time>
+        <span class="news-text">
+          I've been nominated for the Mariëtte Kaandorp Prize for Excellence in Thesis Mentoring.
+        </span>
+      </li>
+
+      <li class="news-item">
+        <time datetime="2025-10-01">Sep–Oct</time>
+        <span class="news-text">
+          I've presented my paper on <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4241164">Future of Emissions</a> at ABN AMRO, Erasmus University, and Stockholm School of Economics.
+        </span>
+      </li>
+
+      <li class="news-item">
+        <time datetime="2025-07-01">Jul</time>
+        <span class="news-text">
+          <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3531312">Updated Paper!</a> We now show the drivers of outperformance and a new ESG stock purchase test in <a href="#paper-skills">Skills and Sentiment in Sustainable Finance</a> paper.
+        </span>
+      </li>
+
+      <li class="news-item">
+        <time datetime="2025-06-01">Jun</time>
+        <span class="news-text">
+          <b><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5302515">New Paper!</a></b> Common perception is that you need 25 stocks for full diversification, we show you need 250!
+          <a href="#paper-fomo">Take a look. <span class="glyphicon glyphicon-chevron-down" style="font-size: 0.8em;"></span></a>
+        </span>
+      </li>
+
+      <li class="news-item">
+        <time datetime="2025-05-15">May</time>
+        <span class="news-text">
+          I am very excited to be hosting the <a href="https://sites.google.com/view/dutchsustainablefinancenetwork">Dutch Sustainable Finance</a> Workshop.
+          <a href="doc/Dutch_Sustainable_Finance_Programme_with_papers_v-final.pdf">Check out the program here!</a>
+        </span>
+      </li>
+
+      <li class="news-item">
+        <time datetime="2025-05-01">May</time>
+        <span class="news-text">
+          I presented my paper on the <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4241164">Future of Emissions</a> at the <a href="https://sfs.org/sfs-cavalcade-north-america-2025/">SFS Cavalcade North America conference</a>.
+        </span>
+      </li>
     </ul>
 </div>
 
@@ -299,17 +437,44 @@ $(function() {
         </button>
     </h4>
     <div class="collapse" id="pastNewsContent">
-        <ul>
-            <li>August 2024: I presented my paper on the <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4241164">Future of Emissions</a> at the <a href="https://efa2024.efa-meetings.org">European Finance Association's 2024 annual meeting</a>.</li>  
-            <li>March 2024: I have been invited as a <a href="https://www.netspar.nl">Netspar</a> research fellow.</li>   
-            <li>March 2024: I have been awarded a € 25 000 Netspar Topicality Grant together with <a href = "https://www.mathijsavandijk.com">Mathijs van Dijk</a>.</li>     
-            <li>Jan 2024: I presented paper on <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4241164">Future of Emissions</a> at the <a href = "https://afajof.org/annual-meeting/">American Finance Association 2024 annual meeting</a>.</li>        
-            <li>July 2023:  Denmarks leading business and general interest paper wrote <a href="https://eavis.jyllands-posten.dk/p/erhverv/29-07-2023/r/2/2-3/4825/1042337">"ESG investments go to Climate Sinners"</a> on Jules van Binsbergen and my <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4241164">research</a>. They offer our Emission Futures as a solution. Reprint in Finans <a href="https://finans.dk/debat/ECE16288410/doing-bad-esginvesteringer-gaar-til-klimasyndere/">here</a>.</li>
-            <li>June 2023: I've become a Brandes Center Prize Finalist.</li>
-            <li>May 2023: Podcast about paper on <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4241164">Future of Emissions</a> now available at <a href = "https://open.spotify.com/episode/1DOYXRhOeNyK5foDaUi5xR?si=6c52fbe8fecb4ebc">Rig på Viden Podcasts</a>.</li>
-            <li>May 2023: I recorded a podcast with <a href="https://open.spotify.com/show/7KD8cXZczMWun4AiMMqg6y">Rig på Viden</a> about paper on <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4241164">Future of Emissions</a>. Recording forthcoming.</li>
-            <li>April 2023: Come September, I will start as Assistant Professor in Finance at Rotterdam School of Management at Erasmus University.</li>
-        </ul>
+      <ul class="news-list">
+        <li class="news-item">
+          <time datetime="2024-08-01">Aug 2024</time>
+          <span class="news-text">I presented my paper on the <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4241164">Future of Emissions</a> at the <a href="https://efa2024.efa-meetings.org">European Finance Association's 2024 annual meeting</a>.</span>
+        </li>
+        <li class="news-item">
+          <time datetime="2024-03-01">Mar</time>
+          <span class="news-text">I have been invited as a <a href="https://www.netspar.nl">Netspar</a> research fellow.</span>
+        </li>
+        <li class="news-item">
+          <time datetime="2024-03-01">Mar</time>
+          <span class="news-text">I have been awarded a EUR 25,000 Netspar Topicality Grant together with <a href="https://www.mathijsavandijk.com">Mathijs van Dijk</a>.</span>
+        </li>
+        <li class="news-item">
+          <time datetime="2024-01-01">Jan</time>
+          <span class="news-text">I presented paper on <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4241164">Future of Emissions</a> at the <a href="https://afajof.org/annual-meeting/">American Finance Association 2024 annual meeting</a>.</span>
+        </li>
+        <li class="news-item">
+          <time datetime="2023-07-01">Jul 2023</time>
+          <span class="news-text">Denmarks leading business and general interest paper wrote <a href="https://eavis.jyllands-posten.dk/p/erhverv/29-07-2023/r/2/2-3/4825/1042337">"ESG investments go to Climate Sinners"</a> on Jules van Binsbergen and my <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4241164">research</a>. They offer our Emission Futures as a solution. Reprint in Finans <a href="https://finans.dk/debat/ECE16288410/doing-bad-esginvesteringer-gaar-til-klimasyndere/">here</a>.</span>
+        </li>
+        <li class="news-item">
+          <time datetime="2023-06-01">Jun</time>
+          <span class="news-text">I've become a Brandes Center Prize Finalist.</span>
+        </li>
+        <li class="news-item">
+          <time datetime="2023-05-01">May</time>
+          <span class="news-text">Podcast about paper on <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4241164">Future of Emissions</a> now available at <a href="https://open.spotify.com/episode/1DOYXRhOeNyK5foDaUi5xR?si=6c52fbe8fecb4ebc">Rig på Viden Podcasts</a>.</span>
+        </li>
+        <li class="news-item">
+          <time datetime="2023-05-01">May</time>
+          <span class="news-text">I recorded a podcast with <a href="https://open.spotify.com/show/7KD8cXZczMWun4AiMMqg6y">Rig på Viden</a> about paper on <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4241164">Future of Emissions</a>. Recording forthcoming.</span>
+        </li>
+        <li class="news-item">
+          <time datetime="2023-04-01">Apr</time>
+          <span class="news-text">Come September, I will start as Assistant Professor in Finance at Rotterdam School of Management at Erasmus University.</span>
+        </li>
+      </ul>
     </div>
 </div>
 
