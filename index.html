@@ -156,9 +156,10 @@ $(function() {
     .navbar-inverse .navbar-collapse {
     border-color: #A0653A !important; /* Light brown border for collapsed menu */
     }
-    h1, h2, h3, h4, b { /* also for strong? */
-    color: #8B4513; /* Matching brown for headers */
+    h1, h2, h3, h4, b, .label-light { /* also for strong? */
+    color: #8B4513; /* Matching brown for headers and light labels */
     }
+    h3 { font-weight: normal; }
     h5 {
     font-weight: normal; /* Remove bold from h5 */
     }
@@ -196,12 +197,17 @@ $(function() {
   
   /* Larger hero text on screens bigger than mobile */
   @media (min-width: 768px) { /* Bootstrap sm and up */
-    #home h1 { font-size: 42px; }
-    #home p { font-size: 20px; }
+    #home h1 { font-size: 38px; }
+    #home p { font-size: 18px; }
   }
   @media (min-width: 992px) { /* Bootstrap md and up */
     #home h1 { font-size: 42px; }
     #home p { font-size: 22px; }
+  }
+
+  /* Larger body copy on medium/large screens */
+  @media (min-width: 992px) {
+    h4, h5 { font-size: 18px; line-height: 1.6; }
   }
 
   /* Larger News text on medium and up screens */
@@ -281,6 +287,28 @@ $(function() {
   @media (max-width: 767px) {
     #past_news .news-item { flex-direction: column; }
     #past_news .news-item time { flex: none; margin-bottom: 4px; }
+  }
+
+  /* Subtle separators between research papers */
+  #research > .row {
+    border-bottom: 1px solid #e9e9e9;
+    padding-bottom: 22px;
+    margin: 0 15px 22px; /* inset line similar to News spacing without pseudos */
+  }
+  #research > .row:last-of-type {
+    border-bottom: none;
+    margin: 0 15px 0;
+    padding-bottom: 0;
+  }
+
+  /* Light weight numbers preceding paper titles */
+  .paper-num {
+    font-weight: 300;
+    color: #9a7b5a;
+    margin-right: 6px;
+  }
+  .label-light {
+    font-weight: 300;
   }
   </style>
   
@@ -365,7 +393,6 @@ $(function() {
 <!-- Section: News -->
 <div id="news" class="container-fluid">
     <h1>News</h1>
-    <p></p>
 
     <ul class="news-list">
       <li class="news-item">
@@ -481,7 +508,7 @@ $(function() {
 <!-- Section: Research -->
 <div id="research" class="container-fluid">
     <h1>Research</h1>
-    <p>Here you will find my current research.</p>
+    <h5>Here you will find my current research.</h5>
     <h2 id = "working-papers">Working Papers</h2>
 
     <div id="paper-fomo" class="row">
@@ -489,15 +516,16 @@ $(function() {
           <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5302515" target="_blank" onclick="gtag('event', 'buttonPaperBufferFig-click');">
            <img src="images/statman.png" alt="Diversification"  class="img-responsive" width="500px">
           </a>
-          <h5> <i style="font-size:small"> Common perception is that you need 25 stocks for full diversification, we show you need 250! Sharpe ratios increase by 33%.</i> </h5>
+          <h5> <i style="font-size:1em"> Common perception is that you need 25 stocks for full diversification, we show you need 250! Sharpe ratios increase by 33%.</i> </h5>
       </div> 
       <div class="col-md-6 grow">
-          <h3>7. <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5302515" target="_blank" onclick="gtag('event', 'buttonPaperBuffer-click');">
+          <h3><span class="paper-num">7.</span><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5302515" target="_blank" onclick="gtag('event', 'buttonPaperBuffer-click');">
           FOMO in Equity Markets?
-          Concentration Risk in (Sustainable) Investing</h3>
-        </a> (with <a href="https://sites.google.com/view/jorenkoeter/" target="_blank" onclick="gtag('event', 'buttonPaperEmissions-click');">Joren Koëter</a> and <a href="https://www.mathijsavandijk.com" target="_blank" onclick="gtag('event', 'buttonPaperEmissions-click');">Mathijs van Dijk</a>).
-          [<a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5302515" target="_blank" onclick="gtag('event', 'buttonPaperEmissions-click');"><i><i>SSRN</i></i></a>]</h5>
-                    <h5> <b>Press</b>:<br> 
+          Concentration Risk in (Sustainable) Investing</a></h3> 
+          <h5>(with <a href="https://sites.google.com/view/jorenkoeter/" target="_blank" onclick="gtag('event', 'buttonPaperEmissions-click');">Joren Koëter</a> and <a href="https://www.mathijsavandijk.com" target="_blank" onclick="gtag('event', 'buttonPaperEmissions-click');">Mathijs van Dijk</a>).
+            [<a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5302515" target="_blank" onclick="gtag('event', 'buttonPaperEmissions-click');"><i><i>SSRN</i></i></a>]
+        </h5>
+                    <h5> <span class="label-light">Press</span>:<br> 
                       Article on paper in <a href="https://www.financialinvestigator.nl/en/column-detailpagina/2025/10/10/cfa-society-netherlands-is-a-sustainable-well-diversified-equity-portfolio-possible">Financialinvestigator.nl by CFA Society Netherlands (in English)</a><br> 
                       Article on paper in <a href="https://www.financialinvestigator.dk/news-detail-page/2025/10/22/blackrock-good-governance-and-double-materiality">Financialinvestigator.dk by Blackrock (in English)</a><br> 
                       Article on paper in <a href="https://www.top1000funds.com/2025/07/new-study-flags-risk-in-dutch-pensions-concentrated-stock-strategy/">Top1000funds.com (in English)</a><br> 
@@ -509,14 +537,16 @@ $(function() {
                       Blog post references our paper <a href="https://prof-soehnholz.com/brownium-researchpost-235/?month=2025-08">prof-soehnholz.com (In English)</a><br>
             </h5>
                </h5>
-          <a class="btn btn-link" style="padding: 0; text-decoration: none; border: none; background: none; font-size: 14px;" data-toggle="collapse" href="#fomoAbstractContent" role="button" aria-expanded="false" aria-controls="fomoAbstractContent">
+               <h5>
+          <a class="btn btn-link" style="padding: 0; text-decoration: none; border: none; background: none; font-size: inherit;" data-toggle="collapse" href="#fomoAbstractContent" role="button" aria-expanded="false" aria-controls="fomoAbstractContent">
               <b>Abstract</b> <span class="glyphicon glyphicon-chevron-down" id="fomoAbstractIcon" style="font-size: 0.8em;"></span>
           </a>
+          </h5>
           <div class="collapse" id="fomoAbstractContent">
-            <p>This paper revisits the financial consequences of imperfectly diversified portfolios – in light of the trend towards concentrated (sustainable) portfolios among some institutional investors. Based on a large global sample of stocks over 1985-2023, we find that – in contrast to common beliefs and prior studies – it takes considerably more than 30-40 stocks to fully diversify idiosyncratic risk. Our second key finding is that concentrated portfolios involve a hitherto unstudied risk: FOMO (Fear Of Missing Out) – just 2% of stocks account for all stock market wealth creation and smaller portfolios have a greater probability of missing out on these top-performing stocks. We find similar diversification and FOMO effects for portfolios constructed based on ESG screens, exclusion of sin industries, and portfolio weight optimization.</p>
+            <h5>This paper revisits the financial consequences of imperfectly diversified portfolios – in light of the trend towards concentrated (sustainable) portfolios among some institutional investors. Based on a large global sample of stocks over 1985-2023, we find that – in contrast to common beliefs and prior studies – it takes considerably more than 30-40 stocks to fully diversify idiosyncratic risk. Our second key finding is that concentrated portfolios involve a hitherto unstudied risk: FOMO (Fear Of Missing Out) – just 2% of stocks account for all stock market wealth creation and smaller portfolios have a greater probability of missing out on these top-performing stocks. We find similar diversification and FOMO effects for portfolios constructed based on ESG screens, exclusion of sin industries, and portfolio weight optimization.</h5>
           </div>
-          <h5><b>Presented at</b>: Rotterdam School of Management, University of St Andrews Business School, 2025 Annual Netspar Conference (Attended by Queen Máxima of the Netherlands), International Pension Workshop 2025, Netspar after-lunch seminar, CFA Netherlands, ICPM webinar, and IPE Annual Conference and Awards.</h5>
-          <h5><b>Podcast</b>: <a href="https://www.netspar.nl/kennisplein/wat-zijn-de-financiele-consequenties-van-geconcentreerde-beleggingsportefeuilles/" target="_blank"> Netspar Podcast on Pensions and Research, Wat zijn de financiële consequenties van geconcentreerde beleggingsportefeuilles? (In Dutch)</a>.</h5> <!-- height = "232" -->
+          <h5><span class="label-light">Presented at</span>: Rotterdam School of Management, University of St Andrews Business School, 2025 Annual Netspar Conference (Attended by Queen Máxima of the Netherlands), International Pension Workshop 2025, Netspar after-lunch seminar, CFA Netherlands, ICPM webinar, and IPE Annual Conference and Awards.</h5>
+          <h5><span class="label-light">Podcast</span>: <a href="https://www.netspar.nl/kennisplein/wat-zijn-de-financiele-consequenties-van-geconcentreerde-beleggingsportefeuilles/" target="_blank"> Netspar Podcast on Pensions and Research, Wat zijn de financiële consequenties van geconcentreerde beleggingsportefeuilles? (In Dutch)</a>.</h5> <!-- height = "232" -->
           <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/episode/1vLhzpZgykVl2dQMTjL8kj?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
     </div>
@@ -528,21 +558,24 @@ $(function() {
           <a href="https://papers.ssrn.com/abstract=4241164" target="_blank" onclick="gtag('event', 'buttonPaperBufferFig-click');">
            <img src="images/equation.svg" alt="The Future of Emissions"  class="img-responsive" width="500px">
           </a>
-          <h5> <i style="font-size:small"> Real Impact is made simple and measurable by an Emission Future's negative dollar return.</i> </h5>
+          <h5> <i style="font-size:1em"> Real Impact is made simple and measurable by an Emission Future's negative dollar return.</i> </h5>
       </div>  
       <div class="col-md-6 grow">
-          <h3>6. <a href="https://papers.ssrn.com/abstract=4241164" target="_blank" onclick="gtag('event', 'buttonPaperBuffer-click');">
-          The Future of Emissions</h3></a> (with <a href="https://sites.google.com/view/jules-van-binsbergen/homepage" target="_blank" onclick="gtag('event', 'buttonPaperEmissions-click');">Jules van Binsbergen</a>). [<a href="https://papers.ssrn.com/abstract=4241164" target="_blank" onclick="gtag('event', 'buttonPaperEmissions-click');"><i><i>SSRN</i></i></a>]</h5>
+          <h3><span class="paper-num">6.</span><a href="https://papers.ssrn.com/abstract=4241164" target="_blank" onclick="gtag('event', 'buttonPaperBuffer-click');">
+          The Future of Emissions</a></h3> 
+          <h5>(with <a href="https://sites.google.com/view/jules-van-binsbergen/homepage" target="_blank" onclick="gtag('event', 'buttonPaperEmissions-click');">Jules van Binsbergen</a>). 
+            [<a href="https://papers.ssrn.com/abstract=4241164" target="_blank" onclick="gtag('event', 'buttonPaperEmissions-click');"><i><i>SSRN</i></i></a>]
+          </h5>
           <!-- <h5><b>Presented at</b>: Wharton School at the University of Pennsylvania, PhD Nordic Finance Workshop, Poster Session at American Finance Association Annual Meeting (AFA), Copenhagen Business School.</h5> -->
                     <h5><i> <!--Presented at the fourth University of Oklahoma Energy and Climate Finance Research Conference co-sponsored --> Invited for presentation at the American Finance Association Annual Meeting (<b>AFA</b>), European Finance Association Annual Meeting (<b>EFA</b>), <b>SFS</b> Cavalcade North America, in the global Financial Economics of Climate and Sustainability (<b>FECS</b>) doctoral course hosted by Harvard, Vrije Amsterdam University, Utrecht University, and Cambridge University. </i></h5>
-          <a class="btn btn-link" style="padding: 0; text-decoration: none; border: none; background: none; font-size: 14px;" data-toggle="collapse" href="#emissionsAbstractContent" role="button" aria-expanded="false" aria-controls="emissionsAbstractContent">
+          <a class="btn btn-link" style="padding: 0; text-decoration: none; border: none; background: none; font-size: inherit;" data-toggle="collapse" href="#emissionsAbstractContent" role="button" aria-expanded="false" aria-controls="emissionsAbstractContent">
               <b>Abstract</b> <span class="glyphicon glyphicon-chevron-down" id="emissionsAbstractIcon" style="font-size: 0.8em;"></span>
           </a>
           <div class="collapse" id="emissionsAbstractContent">
-            <p>We argue for the introduction of firm-level emission futures contracts as a novel way of assessing the real impact of ESG initiatives. Our measure is based on the forward-looking market-based valuation of firm-level CO2 emissions. We establish both theoretically and empirically that backward-looking subjective ratings are limited to the extent that they fail to capture future reductions in emissions. We show evidence that although lower emissions have predicted higher E ratings, higher E ratings have predicted higher, not lower, emissions. As such, by following these subjective ratings, investors may have inadvertently allocated their money to firms that pollute more, not less. We discuss several applications of our new measure, including executive pay and investment management.</p>
+            <h>We argue for the introduction of firm-level emission futures contracts as a novel way of assessing the real impact of ESG initiatives. Our measure is based on the forward-looking market-based valuation of firm-level CO2 emissions. We establish both theoretically and empirically that backward-looking subjective ratings are limited to the extent that they fail to capture future reductions in emissions. We show evidence that although lower emissions have predicted higher E ratings, higher E ratings have predicted higher, not lower, emissions. As such, by following these subjective ratings, investors may have inadvertently allocated their money to firms that pollute more, not less. We discuss several applications of our new measure, including executive pay and investment management.</h>
           </div>
-          <h5> <b>Press</b>: <a href="https://esg.wharton.upenn.edu/centers-labs/climate-center/">Wharton Climate Center</a>; <a href="https://eavis.jyllands-posten.dk/p/erhverv/29-07-2023/r/2/2-3/4825/1042337">Jyllands Posten, Print and Online</a>; <a href="https://finans.dk/debat/ECE16288410/doing-bad-esginvesteringer-gaar-til-klimasyndere/">Finans</a>.</h5>
-          <h5> <b>Podcast</b>: <a href="https://open.spotify.com/episode/1DOYXRhOeNyK5foDaUi5xR?si=6c52fbe8fecb4ebc" target="_blank"> Rig på viden, Episode 111 (In Danish)</a>.</h5> <!-- height = "232" -->
+          <h5> <span class="label-light">Press</span>: <a href="https://esg.wharton.upenn.edu/centers-labs/climate-center/">Wharton Climate Center</a>; <a href="https://eavis.jyllands-posten.dk/p/erhverv/29-07-2023/r/2/2-3/4825/1042337">Jyllands Posten, Print and Online</a>; <a href="https://finans.dk/debat/ECE16288410/doing-bad-esginvesteringer-gaar-til-klimasyndere/">Finans</a>.</h5>
+          <h5> <span class="label-light">Podcast</span>: <a href="https://open.spotify.com/episode/1DOYXRhOeNyK5foDaUi5xR?si=6c52fbe8fecb4ebc" target="_blank"> Rig på viden, Episode 111 (In Danish)</a>.</h5> <!-- height = "232" -->
           <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/1DOYXRhOeNyK5foDaUi5xR?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
     </div>
@@ -553,26 +586,28 @@ $(function() {
           <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3531312" target="_blank" onclick="gtag('event', 'buttonPaperESGFigure-click');">
           <img src="images/esg_returns.svg" alt="esg returns" class="img-responsive" width="500px">
           </a>
-          <h5> <i style="font-size:small"> Investors with flexible mandates have outperformed in their ESG investments since the onset of the financial crisis. Figure shows cumulative excess returns within the top quantile of flexible ownership of stocks with different ESG levels.</i> </h5>
+          <h5> <i style="font-size:1em"> Investors with flexible mandates have outperformed in their ESG investments since the onset of the financial crisis. Figure shows cumulative excess returns within the top quantile of flexible ownership of stocks with different ESG levels.</i> </h5>
       </div>
       <div class="col-md-6 grow"> 
-          <h3>5. <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3531312" target="_blank" onclick="gtag('event', 'buttonPaperESG-click');">
-          Skills and Sentiment in Sustainable Investing</h3></a> (with <a href="https://sites.google.com/view/alexander-kronies" target="_blank" onclick="gtag('event', 'buttonPaperESG-click');">Alexander Kronies</a>). 
-          [<a href="https://papers.ssrn.com/abstract=3531312" target="_blank" onclick="gtag('event', 'buttonPaperESG-click');"><i><i>SSRN</i></i></a>]</h5>
+          <h3><span class="paper-num">5.</span><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3531312" target="_blank" onclick="gtag('event', 'buttonPaperESG-click');">
+          Skills and Sentiment in Sustainable Investing</a></h3> 
+          <h5>(with <a href="https://sites.google.com/view/alexander-kronies" target="_blank" onclick="gtag('event', 'buttonPaperESG-click');">Alexander Kronies</a>). 
+            [<a href="https://papers.ssrn.com/abstract=3531312" target="_blank" onclick="gtag('event', 'buttonPaperESG-click');"><i><i>SSRN</i></i></a>]
+          </h5>
           <h5><i> Presented at the fourth University of Oklahoma Energy and Climate Finance Research Conference co-sponsored  <!-- Invited for Dual-Submission -->
 by the Review of Financial Studies (RFS).  </i></h5>
           <!--<h5> <i><b>New revision</b>: How much has Sustainable Investing reduced CO2? Find the answer in the paper! </i></h5> -->
-          <h5> <b>Awarded</b>: Best Paper in Finance at the 2020 Conference on Behavioral Research in Finance, Governance, and Accounting (BFGA).</h5>
-          <a class="btn btn-link" style="padding: 0; text-decoration: none; border: none; background: none; font-size: 14px;" data-toggle="collapse" href="#skillsAbstractContent" role="button" aria-expanded="false" aria-controls="skillsAbstractContent">
+          <h5> <span class="label-light">Awarded</span>: Best Paper in Finance at the 2020 Conference on Behavioral Research in Finance, Governance, and Accounting (BFGA).</h5>
+          <a class="btn btn-link" style="padding: 0; text-decoration: none; border: none; background: none; font-size: inherit;" data-toggle="collapse" href="#skillsAbstractContent" role="button" aria-expanded="false" aria-controls="skillsAbstractContent">
               <b>Abstract</b> <span class="glyphicon glyphicon-chevron-down" id="skillsAbstractIcon" style="font-size: 0.8em;"></span>
           </a>
           <div class="collapse" id="skillsAbstractContent">
-            <p> We document a significant difference in the returns to sustainable investing across investor types. Investors with strict ESG mandates earn 3.1% less than flexible investors. The mechanism is that flexible investors are able to react on expected ESG improvements. Without engaging in activism, flexible investors buy stocks that subsequently experience ESG score increases. After ESG improvements have realized, demand from strict mandate investors pushes up stock prices, resulting in positive returns for flexible investors. A new climate sentiment measure shows that the performance gap is higher when accompanied by rising sentiment, as seen during the 2010s. Our channel accounts for 51% of the return difference between strict and flexible ESG investment mandates. Hence, going from backward to forward-looking ESG ratings could reduce both capital misallocation and wealth transfer from strict investors, such as pension funds, to more flexible investors, such as hedge funds.</p>
+            <h5> We document a significant difference in the returns to sustainable investing across investor types. Investors with strict ESG mandates earn 3.1% less than flexible investors. The mechanism is that flexible investors are able to react on expected ESG improvements. Without engaging in activism, flexible investors buy stocks that subsequently experience ESG score increases. After ESG improvements have realized, demand from strict mandate investors pushes up stock prices, resulting in positive returns for flexible investors. A new climate sentiment measure shows that the performance gap is higher when accompanied by rising sentiment, as seen during the 2010s. Our channel accounts for 51% of the return difference between strict and flexible ESG investment mandates. Hence, going from backward to forward-looking ESG ratings could reduce both capital misallocation and wealth transfer from strict investors, such as pension funds, to more flexible investors, such as hedge funds.</h5>
           </div>
-          <h5> <b>Podcasts</b>: <a href="https://open.spotify.com/episode/4chVCZvDhoee3Kce00Thjr?si=9E5joNrmSnGHpnRhIO3UHQ" target="_blank"> Rig på viden, Episode 13 (In Danish)</a>;
+          <h5> <span class="label-light">Podcasts</span>: <a href="https://open.spotify.com/episode/4chVCZvDhoee3Kce00Thjr?si=9E5joNrmSnGHpnRhIO3UHQ" target="_blank"> Rig på viden, Episode 13 (In Danish)</a>;
           <a href="https://open.spotify.com/episode/0EJeK2Cb1jtDwjeLVOPAyw?si=d2938493c5db4a3c" target="_blank"> Rig på viden, Episode 79 (In Danish)</a>.</h5> <!-- height = "232" -->
-          <h5> <b>Press</b>: <a href="https://www.allaboutalpha.com/blog/2020/06/02/how-often-do-investors-google-climate-change/" target="_blank"> CAIA Association</a>.</h5>
-          <h5> <b>Presented at</b>: 1st YSBC Sustainable Finance Conference, HEC Paris 6th Phd Workshop, CFA Meeting on ESG-Ratings and Sustainable Investing, University of Oklahoma Energy and Climate Finance Research Conference 2022, American Finance Association Annual Meeting Poster Session (AFA 2022), University of Luxembourg Seminar 2021, The Central Bank Research Association Annual Meeting (CEBRA 2021), Nordic Finance Network Young Scholars Finance Workshop (NFN 2020), 2nd Conference on Behavioral Research in Finance, Governance and Accounting (BFGA 2020), PhD Symposium of the 32nd Northern Finance Association Conference (NFA 2020), 19th Conference on Credit Risk Evaluation (CREDIT 2020), Becker Friedman Institute Macro-Finance Research Program Summer Session for Young Scholars (MFR 2020), Wharton PhD Brown Bag Series 2020.</h5>
+          <h5> <span class="label-light">Press</span>: <a href="https://www.allaboutalpha.com/blog/2020/06/02/how-often-do-investors-google-climate-change/" target="_blank"> CAIA Association</a>.</h5>
+          <h5> <span class="label-light">Presented at</span>: 1st YSBC Sustainable Finance Conference, HEC Paris 6th Phd Workshop, CFA Meeting on ESG-Ratings and Sustainable Investing, University of Oklahoma Energy and Climate Finance Research Conference 2022, American Finance Association Annual Meeting Poster Session (AFA 2022), University of Luxembourg Seminar 2021, The Central Bank Research Association Annual Meeting (CEBRA 2021), Nordic Finance Network Young Scholars Finance Workshop (NFN 2020), 2nd Conference on Behavioral Research in Finance, Governance and Accounting (BFGA 2020), PhD Symposium of the 32nd Northern Finance Association Conference (NFA 2020), 19th Conference on Credit Risk Evaluation (CREDIT 2020), Becker Friedman Institute Macro-Finance Research Program Summer Session for Young Scholars (MFR 2020), Wharton PhD Brown Bag Series 2020.</h5>
           <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/4chVCZvDhoee3Kce00Thjr?utm_source=generator" width="98%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
           <!--
           <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/0EJeK2Cb1jtDwjeLVOPAyw?utm_source=generator&theme=0" width="49%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe> 
@@ -594,17 +629,17 @@ by the Review of Financial Studies (RFS).  </i></h5>
     <div class="row">
       <div class="col-md-6" style = "max-width: 550px;">
            <img src="images/green_cost.png" alt="Green Funds"  class="img-responsive" width="500px">
-          <h5> <i style="font-size:small"> Greener funds (g) have higher value added (V) even though their alphas are lower.</i> </h5> 
+          <h5> <i style="font-size:1em"> Greener funds (g) have higher value added (V) even though their alphas are lower.</i> </h5> 
       </div>
       <div class="col-md-6 grow">
-     <h3>4. The Market for Green Funds</h3> 
+    <h3><span class="paper-num">4.</span> The Market for Green Funds</h3> 
      <h5>(with <a href="https://sites.google.com/view/michael-halling" target="_blank" onclick="gtag('event', 'buttonPaperESG-click');">Michael Halling</a> and <a href="https://sites.google.com/site/francoiskoulischer/home" target="_blank" onclick="gtag('event', 'buttonPaperESG-click');">François Koulischer</a>).</h5>
      <!-- <h5><b>Presented at</b>: American Economic Association Annual Meeting Poster Session (AEA 2022), 36th Congress of the European Economic Association and the Econometric Society European Meeting (EEA-ESEM 2021), Econometric Society Asian Meeting (2021), Nordic Finance Network PhD Workshop (NFN 2021), Copenhagen Business School Brown Bag PhD seminar (2021).</h5> -->
-     <a class="btn btn-link" style="padding: 0; text-decoration: none; border: none; background: none; font-size: 14px;" data-toggle="collapse" href="#greenFundsAbstractContent" role="button" aria-expanded="false" aria-controls="greenFundsAbstractContent">
+     <a class="btn btn-link" style="padding: 0; text-decoration: none; border: none; background: none; font-size: inherit;" data-toggle="collapse" href="#greenFundsAbstractContent" role="button" aria-expanded="false" aria-controls="greenFundsAbstractContent">
               <b>Abstract</b> <span class="glyphicon glyphicon-chevron-down" id="greenFundsAbstractIcon" style="font-size: 0.8em;"></span>
           </a>
       <div class="collapse" id="greenFundsAbstractContent">
-        <p>We derive a model that predicts the rise of green investment funds. The model further explains how green funds have higher value-added, even though their alphas are lower than brown funds after controlling for rising sentiment. We go on to document the growth of green funds from 12% of managed equities in 2013 to 56% by 2021, where we circumvent issues of greenwashing by using the actual emissions of underlying holdings. Dissecting this growth, we find stark differences between North America and Europe, both in terms of magnitude and source of growth.  The results provide support for a lower expected return for green funds going forward, and raises concerns regarding the investor share of value-added in green funds.</p>
+        <h>We derive a model that predicts the rise of green investment funds. The model further explains how green funds have higher value-added, even though their alphas are lower than brown funds after controlling for rising sentiment. We go on to document the growth of green funds from 12% of managed equities in 2013 to 56% by 2021, where we circumvent issues of greenwashing by using the actual emissions of underlying holdings. Dissecting this growth, we find stark differences between North America and Europe, both in terms of magnitude and source of growth.  The results provide support for a lower expected return for green funds going forward, and raises concerns regarding the investor share of value-added in green funds.</h>
       </div>
       </div>
     </div>
@@ -622,7 +657,7 @@ by the Review of Financial Studies (RFS).  </i></h5>
       <div class="col-md-6 grow">
         <h4><a href="https://www.dnb.nl/publicaties/publicaties-onderzoek/working-paper-2024/817-climate-linked-bonds/" target="_blank">
           Climate Linked Bonds</a></h4> <h5>(Broeders ECB and Maastricht University, Dmitrov DNB and University of Amsterdam, and Verhoeven DNB) [<a href="https://www.dnb.nl/publicaties/publicaties-onderzoek/working-paper-2024/817-climate-linked-bonds/" target="_blank"><i>Paper</i></a>].</h5>
-        <h5><b>Presented at</b>: International Pension Workshop (2025).</h5>
+        <h5><span class="label-light">Presented at</span>: International Pension Workshop (2025).</h5>
       </div>
     </div>
     <div class="row">
@@ -630,7 +665,7 @@ by the Review of Financial Studies (RFS).  </i></h5>
         <h4><a href="https://andreasbrogger.com/bologna.pdf" target="_blank">
           Altruism or self-interest? ESG and participation in Employee Share Plans</a></h4> 
           <h5>(Bonelli HEC Paris, Briere Paris-Dauphine, and Derrien HEC Paris) [<a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4164062" target="_blank"><i>Paper</i></a>, <a href="https://andreasbrogger.com/bologna.pdf" target="_blank"><i>Slides</i></a>].</h5>
-        <h5><b>Presented at</b>: Conference in Sustainable and Socially Responsible Finance (2022).</h5>
+        <h5><span class="label-light">Presented at</span>: Conference in Sustainable and Socially Responsible Finance (2022).</h5>
       </div>
     </div>
     <div class="row">
@@ -638,7 +673,7 @@ by the Review of Financial Studies (RFS).  </i></h5>
         <h5>
           <h4><a href="https://www.sciencedirect.com/science/article/pii/S1572308920301029" target="_blank">From stress testing to systemic stress testing: The importance of macroprudential regulation</a></h4>
           <h5>(Vodenska Boston University, Aoyama Kyoto University, Becker Boston University, et al.) [<a href="https://www.sciencedirect.com/science/article/pii/S1572308920301029" target="_blank"><i>Published paper</i></a>].</h5>
-        <h5><b>Presented at</b>: FMA Europe (2018).</h5>
+        <h5><span class="label-light">Presented at</span>: FMA Europe (2018).</h5>
       </div>
     </div>
     
@@ -648,7 +683,7 @@ by the Review of Financial Studies (RFS).  </i></h5>
 
     <div class="row">
       <div class="col-md-6 grow">
-          <h4>3. <a href="https://andreasbrogger.com/CorporateAssetPricing.pdf" target="_blank" onclick="gtag('event', 'buttonPaperCAP-click');">
+          <h4><span class="paper-num">3.</span> <a href="https://andreasbrogger.com/CorporateAssetPricing.pdf" target="_blank" onclick="gtag('event', 'buttonPaperCAP-click');">
           Corporate Asset Pricing</a>
           <a class="btn btn-link" style="padding: 0 0 0 10px; color: #888; text-decoration: none; border: none; background: none; font-size: 12px;" data-toggle="collapse" href="#corporateAssetPricingContent" role="button" aria-expanded="false" aria-controls="corporateAssetPricingContent">
               <span class="glyphicon glyphicon-chevron-down" id="corporateAssetPricingIcon"></span>
@@ -659,11 +694,11 @@ by the Review of Financial Studies (RFS).  </i></h5>
               <a href="https://andreasbrogger.com/CorporateAssetPricing.pdf" target="_blank" onclick="gtag('event', 'buttonPaperBufferFig-click');">
               <img src="images/iivol_cy_scatter.svg" alt="Corporate Asset Pricing"  class="img-responsive" width="500px">
               </a>
-              <h5> <i style="font-size:small"> Corporations' idiosyncratic risk predicts the convenience yield.</i> </h5>
+              <h5> <i style="font-size:1em"> Corporations' idiosyncratic risk predicts the convenience yield.</i> </h5>
             </div>
               <div style="margin-top: 15px; padding: 15px; background-color: #f9f9f9; border-left: 3px solid #ddd;">
-                  <h5><b>Presented at</b>: American Economic Association Annual Meeting Poster Session (AEA 2022), 36th Congress of the European Economic Association and the Econometric Society European Meeting (EEA-ESEM 2021), Econometric Society Asian Meeting (2021), Nordic Finance Network PhD Workshop (NFN 2021), Copenhagen Business School Brown Bag PhD seminar (2021).</h5>
-                  <p>I show the new fact that idiosyncratic volatility significantly predicts the convenience yield. This fact is hard to reconcile with current theories. I develop a new theory that reconciles this puzzle - a theory I label Corporate Asset Pricing (CAP). CAP is verified in the cross-section of firm holdings and has been an important driver at least since the 1920's. I provide causal interpretability by isolating my demand-based effect from confounders by using plausably exogenous cross-sectional variation in corporation size and industry exposures. The results provide support for the importance of corporates as an investor class.</p>
+                  <h5><span class="label-light">Presented at</span>: American Economic Association Annual Meeting Poster Session (AEA 2022), 36th Congress of the European Economic Association and the Econometric Society European Meeting (EEA-ESEM 2021), Econometric Society Asian Meeting (2021), Nordic Finance Network PhD Workshop (NFN 2021), Copenhagen Business School Brown Bag PhD seminar (2021).</h5>
+                  <h>I show the new fact that idiosyncratic volatility significantly predicts the convenience yield. This fact is hard to reconcile with current theories. I develop a new theory that reconciles this puzzle - a theory I label Corporate Asset Pricing (CAP). CAP is verified in the cross-section of firm holdings and has been an important driver at least since the 1920's. I provide causal interpretability by isolating my demand-based effect from confounders by using plausably exogenous cross-sectional variation in corporation size and industry exposures. The results provide support for the importance of corporates as an investor class.</h>
             </div>
           </div>
       </div>
@@ -671,7 +706,7 @@ by the Review of Financial Studies (RFS).  </i></h5>
 
     <div class="row">
       <div class="col-md-6 grow">
-          <h4>2. <a href="https://papers.ssrn.com/abstract=3557231" target="_blank" onclick="gtag('event', 'buttonPaperBuffer-click');">
+          <h4><span class="paper-num">2.</span> <a href="https://papers.ssrn.com/abstract=3557231" target="_blank" onclick="gtag('event', 'buttonPaperBuffer-click');">
           Macroprudential Buffers: Trading Systemic Risk for Risk Premia</a>
           <a class="btn btn-link" style="padding: 0 0 0 10px; color: #888; text-decoration: none; border: none; background: none; font-size: 12px;" data-toggle="collapse" href="#macroprudentialBuffersContent" role="button" aria-expanded="false" aria-controls="macroprudentialBuffersContent">
               <span class="glyphicon glyphicon-chevron-down" id="macroprudentialBuffersIcon"></span>
@@ -682,11 +717,11 @@ by the Review of Financial Studies (RFS).  </i></h5>
               <a href="https://papers.ssrn.com/abstract=3557231" target="_blank" onclick="gtag('event', 'buttonPaperBufferFig-click');">
               <img src="images/buffers.svg" alt="Fire Sales"  class="img-responsive" width="500px">
               </a>
-              <h5> <i style="font-size:small"> When countries increase their macroprudential buffer it increases the price of risk in their respective economies.</i> </h5>
+              <h5> <i style="font-size:1em"> When countries increase their macroprudential buffer it increases the price of risk in their respective economies.</i> </h5>
             </div>
               <div style="margin-top: 15px; padding: 15px; background-color: #f9f9f9; border-left: 3px solid #ddd;">
-                  <h5><b>Presented at</b>: Wharton School at the University of Pennsylvania, PhD Nordic Finance Workshop, Poster Session at American Finance Association Annual Meeting (AFA), Copenhagen Business School.</h5>
-                  <p>I document that equity prices fall as macroprudential buffers are announced. This is consistent with macroprudential buffers leading to an increase in risk premia, from a heightened price of risk. Theoretically, I develop a model that predicts that as buffers are announced 1) The price of risk increases, 2) Systemic risk falls, and 3) Intermediaries' risky asset allocation decreases, as other agents with higher risk aversion increase their portfolio weights in the risky asset. Empirically, I find evidence consistent with the first and third prediction. The second remains a testable implication of my model. In summary, this paper sheds light on the equilibrium effects of implementing new financial regulation on asset prices and systemic risk.</p>
+                  <h5><span class="label-light">Presented at</span>: Wharton School at the University of Pennsylvania, PhD Nordic Finance Workshop, Poster Session at American Finance Association Annual Meeting (AFA), Copenhagen Business School.</h5>
+                  <h>I document that equity prices fall as macroprudential buffers are announced. This is consistent with macroprudential buffers leading to an increase in risk premia, from a heightened price of risk. Theoretically, I develop a model that predicts that as buffers are announced 1) The price of risk increases, 2) Systemic risk falls, and 3) Intermediaries' risky asset allocation decreases, as other agents with higher risk aversion increase their portfolio weights in the risky asset. Empirically, I find evidence consistent with the first and third prediction. The second remains a testable implication of my model. In summary, this paper sheds light on the equilibrium effects of implementing new financial regulation on asset prices and systemic risk.</h>
             </div>
           </div>
       </div>
@@ -694,29 +729,30 @@ by the Review of Financial Studies (RFS).  </i></h5>
     
     <div class="row">
       <div class="col-md-6 grow">
-          <h4> 1. <a href="https://papers.ssrn.com/abstract=3301344" target="_blank" onclick="gtag('event', 'buttonPaperFireSale-click');">
+          <h4><span class="paper-num">1.</span> <a href="https://papers.ssrn.com/abstract=3301344" target="_blank" onclick="gtag('event', 'buttonPaperFireSale-click');">
           Identification and Assessment of Systemic Risks in Financial
           Networks: Modelling Fire Sales from Regulatory Cliff Effects</a>
           <a class="btn btn-link" style="padding: 0 0 0 10px; color: #888; text-decoration: none; border: none; background: none; font-size: 12px;" data-toggle="collapse" href="#fireSalesContent" role="button" aria-expanded="false" aria-controls="fireSalesContent">
               <span class="glyphicon glyphicon-chevron-down" id="fireSalesIcon"></span> </a>
-          <h5> (with Graeme Cokayne), <i>Danmarks Nationalbank Working Paper</i>, Number 117. [<a href="https://papers.ssrn.com/abstract=3301344" target="_blank" onclick="gtag('event', 'buttonPaperFireSale-click');"><i><i>Paper</i></i></a>]</h5>
+          <h5> (with Graeme Cokayne), <i>Danmarks Nationalbank Working Paper</i>, Number 117. [<a href="https://papers.ssrn.com/abstract=3301344" target="_blank" onclick="gtag('event', 'buttonPaperFireSale-click');"><i><i>Paper</i></i></a>]
+          </h5>
           <div class="collapse" id="fireSalesContent">
             <div class="col-md-6" style = "max-width: 550px;">
               <a href="https://papers.ssrn.com/abstract=3301344" target="_blank" onclick="gtag('event', 'buttonPaperFireSaleFig-click');">
               <img src="images/firesales.svg" alt="Fire Sales"  class="img-responsive" width="500px">
               </a>
-              <h5> <i style="font-size:small"> Systems of financial institutions may go from firm to fragile fast. Log scale plot of system equity lost from a small shock for different price impacts. The dashed vertical line indicates the limit of fire sales calculated in the paper. The full line indicates the baseline value.</i> </h5>
+              <h5> <i style="font-size:1em"> Systems of financial institutions may go from firm to fragile fast. Log scale plot of system equity lost from a small shock for different price impacts. The dashed vertical line indicates the limit of fire sales calculated in the paper. The full line indicates the baseline value.</i> </h5>
             </div>
               <div style="margin-top: 15px; padding: 15px; background-color: #f9f9f9; border-left: 3px solid #ddd;">
-                  <h5><b>Presented at</b>: Financial Management Association (FMA) Europe (University of Agder), RiskLab (Bank of Finland), Bank of England, Copenhagen Business School, Lund University, Nykredit A/S, Danmarks Nationalbank.</h5>
-                  <h5><b>Press</b>: <a href="https://finans.dk/live/okonomi/ECE8784521/det-systemiske-raad-advarer-risiko-for-brandudsalg" target="_blank">Finans</a>,
+                  <h5><span class="label-light">Presented at</span>: Financial Management Association (FMA) Europe (University of Agder), RiskLab (Bank of Finland), Bank of England, Copenhagen Business School, Lund University, Nykredit A/S, Danmarks Nationalbank.</h5>
+                  <h5><span class="label-light">Press</span>: <a href="https://finans.dk/live/okonomi/ECE8784521/det-systemiske-raad-advarer-risiko-for-brandudsalg" target="_blank">Finans</a>,
                     <a href="https://finanswatch.dk/Finansnyt/article8784619.ece" target="_blank">FinansWatch</a>,
                     <a href="https://www.dr.dk/nyheder/penge/risikoraad-advarer-om-boligboble" target="_blank">Danmarks Radio</a>,
                     <a href="https://www.nationalbanken.dk/en/publications/Documents/2016/12/Finansial_stability_2_2016.pdf" target="_blank">Danmarks Nationalbank</a>.</h5>
-                  <p>This paper investigates fire sales triggered by regulatory cliff effects induced by the loss of Capital Requirements Regulation (CRR) compliance on covered bonds. The loss of CRR
+                  <h>This paper investigates fire sales triggered by regulatory cliff effects induced by the loss of Capital Requirements Regulation (CRR) compliance on covered bonds. The loss of CRR
                   compliant status leads to banks holding these covered bonds to lose several regulatory advantages, one consequence being a lower solvency. In our analysis, following the loss of CRR
                   compliance, banks sell off their covered bonds in a fire sale, in an attempt to return to their initial solvency, resulting in losses of equity for the system as a whole. Further, we find that, for price impacts larger than a critical threshold, even small shocks lead to explosive fire sales and large losses of equity. While these losses can be averted if the
-                  banks allow their solvency levels to fall temporarily, other regulations, such as those relating to large exposures to other banks, could still trigger similar fire sales.</p>
+                  banks allow their solvency levels to fall temporarily, other regulations, such as those relating to large exposures to other banks, could still trigger similar fire sales.</h>
             </div>
           </div>
       </div>
@@ -756,21 +792,21 @@ by the Review of Financial Studies (RFS).  </i></h5>
   </div>
 </div>
 <br>
-  <p> I co-organize the <b>Dutch Sustainable Finance Workshop</b> series.<br>
+  <h> I co-organize the <b>Dutch Sustainable Finance Workshop</b> series.<br>
   Look out for our call for papers. For last years program see <a href="doc/Dutch_Sustainable_Finance_Programme_with_papers_v-final.pdf" target="_blank">here</a>.<br>
   For more information and to join our Network see <a href="https://sites.google.com/view/dutchsustainablefinancenetwork" target="_blank">here</a>.<br>
   My co-organizers are <a href="https://sites.google.com/view/marcoceccarelli" target="_blank">Marco Ceccarelli</a>, 
   <a href="https://sites.google.com/view/juanpalacios/" target="_blank">Juan Palacios</a>,
-  and <a href="http://www.thomas-walther.info/" target="_blank">Thomas Walther</a>.</p>
+  and <a href="http://www.thomas-walther.info/" target="_blank">Thomas Walther</a>.</h>
 
-  <p><br> <a href="#research" onclick="gtag('event', 'buttonResearch-click');">Back to my research <span class="glyphicon glyphicon-chevron-up" style="font-size: 0.8em;"></span></a></p>
+  <h><br> <a href="#research" onclick="gtag('event', 'buttonResearch-click');">Back to my research <span class="glyphicon glyphicon-chevron-up" style="font-size: 0.8em;"></span></a></h>
 </div>
 
 <!-- Section: Data -->
 <h3> <br /> </h3>
 <div id="data" class="container-fluid">
     <h1>Data</h1>  
-    <p>Here you can find my publicly available datasets.</p>
+    <h>Here you can find my publicly available datasets.</h>
     <h5> <a href="https://papers.ssrn.com/abstract=3531312" onclick="gtag('event', 'buttonPaperESGData-click');">Skills and Sentiment in Sustainable Investing:</a> <a href="https://www.dropbox.com/scl/fi/2gv24evoknhhi6v56pkvw/esg_factor.xlsx?rlkey=x2r5zk64hy2dl0ijaby1bzz40&dl=0" onclick="gtag('event', 'buttonDataESGFactor-click');"> <b>ESG Factor</b> </a> </h5>
     <h5> <a href="https://papers.ssrn.com/abstract=3531312" onclick="gtag('event', 'buttonPaperESGData-click');">Skills and Sentiment in Sustainable Investing:</a> <a href="https://www.dropbox.com/scl/fi/w5ibd12pn687s14zhhidi/climate_factor.xlsx?rlkey=erol0vcjrq3y40oq3vttoao00&dl=0" onclick="gtag('event', 'buttonDataClimateFactor-click');"> <b>Climate Factor</b> </a> </h5>
     <h5> <a href="https://papers.ssrn.com/abstract=3531312" onclick="gtag('event', 'buttonPaperESGData-click');">Skills and Sentiment in Sustainable Investing:</a> <a href="https://www.dropbox.com/scl/fi/jh7hqk7s1c7t7jycfrhce/climate_sentiment.xlsx?rlkey=yuoft36ytetcpwkifhd3x7f0b&dl=0" onclick="gtag('event', 'buttonDataSentiment-click');"> <b>Climate Sentiment Measure</b> </a> </h5>
@@ -780,20 +816,20 @@ by the Review of Financial Studies (RFS).  </i></h5>
 <div id="cv" class="container-fluid">
     <a href="cv/AndreasBrogger.pdf"  onclick="gtag('event', 'buttonCVBottom-click');">
       <h1 style="color: #337AB7;">CV</h1>  </a>
-    <p><br> <a href="#research" onclick="gtag('event', 'buttonResearch-click');">Back to my research <span class="glyphicon glyphicon-chevron-up" style="font-size: 0.8em;"></span></a></p>
+    <h><br> <a href="#research" onclick="gtag('event', 'buttonResearch-click');">Back to my research <span class="glyphicon glyphicon-chevron-up" style="font-size: 0.8em;"></span></a></h>
 </div>
 
 <!-- Footer --> 
 <div id="contact" class="container-fluid centeredContent">
       <h2>Contact</h2>  
-    <p>Department of Finance </br>
+    <h>Department of Finance </br>
     Rotterdam School of Management</br>
     Erasmus University</br>
     Burgemeester Oudlaan 50</br>
     3062 HK Rotterdam</br>
     Netherlands</br>
     Email: brogger@rsm.nl
-    </p>
+    </h>
 </div>
 
 <footer class="footer-copyright py-3 text-center">
