@@ -105,11 +105,26 @@ $(function() {
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <!-- Custom modifications made by me for this template -->
   <style>
+    html {
+      scroll-snap-type: y mandatory;
+    }
     body {
       height: 100%;
       width: 100%;
       position: absolute;
       font-size: 16px;
+    }
+    /* Scroll snap points for main sections */
+    #home, #news, #research, #teaching, #workshop, #data, #cv, #contact {
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+      scroll-margin-top: 50px;
+    }
+    /* Scroll snap for working papers only */
+    #paper-fomo, #paper-emissions, #paper-skills, #discussions {
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+      scroll-margin-top: 50px;
     }
     .fill { height: inherit; }
     .affix {
@@ -233,7 +248,7 @@ $(function() {
     padding: 12px 0;
     border-bottom: 1px solid #e9e9e9;
   }
-  #news .news-item:last-child { border-bottom: none; }
+/* #news .news-item:last-child { border-bottom: none; } */
 
   #news .news-item time {
     flex: 0 0 140px; /* fixed date column */
@@ -268,7 +283,7 @@ $(function() {
     padding: 10px 0;
     border-bottom: 1px solid #efefef;
   }
-  #past_news .news-item:last-child { border-bottom: none; }
+  /* #past_news .news-item:last-child { border-bottom: none; } */
 
   #past_news .news-item time {
     flex: 0 0 120px;
@@ -294,11 +309,6 @@ $(function() {
     padding-bottom: 22px;
     margin: 0 15px 22px; /* inset line similar to News spacing without pseudos */
   }
-  #research > .row:last-of-type {
-    border-bottom: none;
-    margin: 0 15px 0;
-    padding-bottom: 0;
-  }
 
   /* Light weight numbers preceding paper titles */
   .paper-num {
@@ -308,6 +318,20 @@ $(function() {
   }
   .label-light {
     font-weight: 300;
+  }
+
+  /* Subtle separators between teaching courses */
+  #teaching .course-item {
+    border-bottom: 1px solid #e9e9e9;
+    padding-bottom: 18px;
+    margin-bottom: 18px;
+  }
+
+  /* Subtle separators between data items */
+  #data .data-item {
+    border-bottom: 1px solid #e9e9e9;
+    padding-bottom: 12px;
+    margin-bottom: 12px;
   }
   </style>
   
@@ -560,7 +584,7 @@ $(function() {
 
 
     <h3> <br />  </h3>
-    <div class="row">
+    <div id="paper-emissions" class="row">
       <div class="col-md-6" style = "max-width: 550px;">  
           <a href="https://papers.ssrn.com/abstract=4241164" target="_blank" onclick="gtag('event', 'buttonPaperBufferFig-click');">
            <img src="images/equation.svg" alt="The Future of Emissions"  class="img-responsive" width="500px">
@@ -602,7 +626,7 @@ $(function() {
             [<a href="https://papers.ssrn.com/abstract=3531312" target="_blank" onclick="gtag('event', 'buttonPaperESG-click');"><i><i>SSRN</i></i></a>]
           </h5>
           <h5><i> Presented at the fourth University of Oklahoma Energy and Climate Finance Research Conference co-sponsored  <!-- Invited for Dual-Submission -->
-by the Review of Financial Studies (RFS).  </i></h5>
+  by the Review of Financial Studies (RFS).  </i></h5>
           <!--<h5> <i><b>New revision</b>: How much has Sustainable Investing reduced CO2? Find the answer in the paper! </i></h5> -->
           <h5> <span class="label-light">Awarded</span>: Best Paper in Finance at the 2020 Conference on Behavioral Research in Finance, Governance, and Accounting (BFGA).</h5>
           <a class="btn btn-link" style="padding: 0; text-decoration: none; border: none; background: none; font-size: inherit;" data-toggle="collapse" href="#skillsAbstractContent" role="button" aria-expanded="false" aria-controls="skillsAbstractContent">
@@ -775,16 +799,20 @@ by the Review of Financial Studies (RFS).  </i></h5>
 <div id="teaching" class="container-fluid">
   <h1 style="margin-bottom: 0.5em;">Teaching</h1>
 
-  
+  <div class="course-item">
   <h4>Sustainable Finance (2024, 2025)</h4>
-  <h5 style="margin-bottom: 1em; margin-top: -0.5em">Rotterdam School of Management, Erasmus University</h5>
+  <h5 style="margin-bottom: 0; margin-top: -0.5em">Rotterdam School of Management, Erasmus University</h5>
+  </div>
 
-
+  <div class="course-item">
   <h4>Financial Economics of Climate and Sustainability (2024, 2025)</h4>
-  <h5 style="margin-bottom: 1em; margin-top: -0.5em">Local coordinator for <a href="https://salatainstitute.harvard.edu/financial-economics-of-climate-and-sustainability/" target="_blank">Global PhD course</a> based at Harvard University</h5>
-  
+  <h5 style="margin-bottom: 0; margin-top: -0.5em">Local coordinator for <a href="https://salatainstitute.harvard.edu/financial-economics-of-climate-and-sustainability/" target="_blank">Global PhD course</a> based at Harvard University</h5>
+  </div>
+
+  <div class="course-item">
   <h4>Financial Modelling / Investments 2 (2024)</h4>
-  <h5 style="margin-bottom: 1em; margin-top: -0.5em">Rotterdam School of Management, Erasmus University</h5>
+  <h5 style="margin-bottom: 0; margin-top: -0.5em">Rotterdam School of Management, Erasmus University</h5>
+  </div>
 </div>
 
 
@@ -807,16 +835,29 @@ by the Review of Financial Studies (RFS).  </i></h5>
   and <a href="http://www.thomas-walther.info/" target="_blank">Thomas Walther</a>.</h>
 
   <h><br> <a href="#research" onclick="gtag('event', 'buttonResearch-click');">Back to my research <span class="glyphicon glyphicon-chevron-up" style="font-size: 0.8em;"></span></a></h>
+  <div style="border-bottom: 1px solid #e9e9e9; margin-top: 22px;"></div>
 </div>
 
 <!-- Section: Data -->
 <h3> <br /> </h3>
 <div id="data" class="container-fluid">
-    <h1>Data</h1>  
-    <h>Here you can find my publicly available datasets.</h>
-    <h5> <a href="https://papers.ssrn.com/abstract=3531312" onclick="gtag('event', 'buttonPaperESGData-click');">Skills and Sentiment in Sustainable Investing:</a> <a href="https://www.dropbox.com/scl/fi/2gv24evoknhhi6v56pkvw/esg_factor.xlsx?rlkey=x2r5zk64hy2dl0ijaby1bzz40&dl=0" onclick="gtag('event', 'buttonDataESGFactor-click');"> <b>ESG Factor</b> </a> </h5>
-    <h5> <a href="https://papers.ssrn.com/abstract=3531312" onclick="gtag('event', 'buttonPaperESGData-click');">Skills and Sentiment in Sustainable Investing:</a> <a href="https://www.dropbox.com/scl/fi/w5ibd12pn687s14zhhidi/climate_factor.xlsx?rlkey=erol0vcjrq3y40oq3vttoao00&dl=0" onclick="gtag('event', 'buttonDataClimateFactor-click');"> <b>Climate Factor</b> </a> </h5>
-    <h5> <a href="https://papers.ssrn.com/abstract=3531312" onclick="gtag('event', 'buttonPaperESGData-click');">Skills and Sentiment in Sustainable Investing:</a> <a href="https://www.dropbox.com/scl/fi/jh7hqk7s1c7t7jycfrhce/climate_sentiment.xlsx?rlkey=yuoft36ytetcpwkifhd3x7f0b&dl=0" onclick="gtag('event', 'buttonDataSentiment-click');"> <b>Climate Sentiment Measure</b> </a> </h5>
+    <h1 style="margin-bottom: 0.5em;">Data</h1>  
+
+    <div class="data-item">
+    <h4><a href="https://www.dropbox.com/scl/fi/2gv24evoknhhi6v56pkvw/esg_factor.xlsx?rlkey=x2r5zk64hy2dl0ijaby1bzz40&dl=0" onclick="gtag('event', 'buttonDataESGFactor-click');">ESG Factor</a></h4>
+    <h5 style="margin-bottom: 0; margin-top: -0.5em">From <a href="https://papers.ssrn.com/abstract=3531312" onclick="gtag('event', 'buttonPaperESGData-click');">Skills and Sentiment in Sustainable Investing</a></h5>
+    </div>
+
+    <div class="data-item">
+    <h4><a href="https://www.dropbox.com/scl/fi/w5ibd12pn687s14zhhidi/climate_factor.xlsx?rlkey=erol0vcjrq3y40oq3vttoao00&dl=0" onclick="gtag('event', 'buttonDataClimateFactor-click');">Climate Factor</a></h4>
+    <h5 style="margin-bottom: 0; margin-top: -0.5em">From <a href="https://papers.ssrn.com/abstract=3531312" onclick="gtag('event', 'buttonPaperESGData-click');">Skills and Sentiment in Sustainable Investing</a></h5>
+    </div>
+
+    <div class="data-item">
+    <h4><a href="https://www.dropbox.com/scl/fi/jh7hqk7s1c7t7jycfrhce/climate_sentiment.xlsx?rlkey=yuoft36ytetcpwkifhd3x7f0b&dl=0" onclick="gtag('event', 'buttonDataSentiment-click');">Climate Sentiment Measure</a></h4>
+    <h5 style="margin-bottom: 0; margin-top: -0.5em">From <a href="https://papers.ssrn.com/abstract=3531312" onclick="gtag('event', 'buttonPaperESGData-click');">Skills and Sentiment in Sustainable Investing</a></h5>
+    </div>
+
 </div>
 
 <!-- Section: CV -->
@@ -824,6 +865,7 @@ by the Review of Financial Studies (RFS).  </i></h5>
     <a href="cv/AndreasBrogger.pdf"  onclick="gtag('event', 'buttonCVBottom-click');">
       <h1 style="color: #337AB7;">CV</h1>  </a>
     <h><br> <a href="#research" onclick="gtag('event', 'buttonResearch-click');">Back to my research <span class="glyphicon glyphicon-chevron-up" style="font-size: 0.8em;"></span></a></h>
+    <div style="border-bottom: 1px solid #e9e9e9; margin-top: 22px;"></div>
 </div>
 
 <!-- Footer --> 
@@ -840,7 +882,7 @@ by the Review of Financial Studies (RFS).  </i></h5>
 </div>
 
 <footer class="footer-copyright py-3 text-center">
-<h4> <small> &copy; 2018-2025 Andreas Brøgger </small> </h4>
+<h4> <small> &copy; 2018-2026 Andreas Brøgger </small> </h4>
 </footer>
 
 
