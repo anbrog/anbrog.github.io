@@ -98,6 +98,17 @@ $(function() {
     var homeHeight = window.innerHeight * 0.95;
     $('.navbar').data('bs.affix').options.offset.top = homeHeight;
   });
+
+  // Temporarily disable scroll snap when clicking navigation links
+  $('a[href^="#"]').on('click', function() {
+    // Disable scroll snap
+    $('html').css('scroll-snap-type', 'none');
+    
+    // Re-enable scroll snap after scrolling completes
+    setTimeout(function() {
+      $('html').css('scroll-snap-type', 'y mandatory');
+    }, 1000); // 1 second delay to allow scroll to complete
+  });
 });
 </script>
 
