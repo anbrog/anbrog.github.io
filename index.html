@@ -106,7 +106,7 @@ $(function() {
     
     // Re-enable scroll snap after scrolling completes
     setTimeout(function() {
-      $('html').css('scroll-snap-type', 'y mandatory');
+      $('html').css('scroll-snap-type', 'y proximity');
     }, 1000); // 1 second delay to allow scroll to complete
   });
 });
@@ -117,7 +117,7 @@ $(function() {
   <!-- Custom modifications made by me for this template -->
   <style>
     html {
-      scroll-snap-type: y mandatory;
+      scroll-snap-type: y proximity;
     }
     body {
       height: 100%;
@@ -128,13 +128,11 @@ $(function() {
     /* Scroll snap points for main sections */
     #home, #news, #research, #teaching, #workshop, #data, #cv, #contact {
       scroll-snap-align: start;
-      scroll-snap-stop: always;
       scroll-margin-top: 50px;
     }
     /* Scroll snap for working papers only */
     #paper-fomo, #paper-emissions, #paper-skills, #work-in-progress, #discussions, #resting-papers {
       scroll-snap-align: start;
-      scroll-snap-stop: always;
       scroll-margin-top: 50px;
     }
     .fill { height: inherit; }
