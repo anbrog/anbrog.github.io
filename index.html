@@ -927,6 +927,9 @@ $(document).ready(function(){
       // Store hash
       var hash = this.hash;
 
+      // Disable scroll-snap during navigation to prevent snapping back
+      $('html').css('scroll-snap-type', 'none');
+
       // Using jQuery's animate() method to add smooth page scroll
       // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
       $('html, body').animate({
@@ -935,6 +938,9 @@ $(document).ready(function(){
    
         // Add hash (#) to URL when done scrolling (default click behavior)
         window.location.hash = hash;
+        
+        // Re-enable scroll-snap after navigation completes
+        $('html').css('scroll-snap-type', 'y proximity');
       });
     }  // End if
   });
