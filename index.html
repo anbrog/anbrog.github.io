@@ -251,9 +251,9 @@ $(function() {
     border-bottom: 1px solid #e9e9e9;
   }
 
-  /* Zebra striping for news items */
+  /* News items have white background (no zebra striping) */
   #news .news-item.zebra-even {
-    background-color: #f7f7f7;
+    background-color: transparent;
   }
 /* #news .news-item:last-child { border-bottom: none; } */
 
@@ -291,9 +291,9 @@ $(function() {
     border-bottom: 1px solid #efefef;
   }
 
-  /* Zebra striping for past news items */
+  /* Past news items have white background (no zebra striping) */
   #past_news .news-item.zebra-even {
-    background-color: #f7f7f7;
+    background-color: transparent;
   }
   /* #past_news .news-item:last-child { border-bottom: none; } */
 
@@ -323,19 +323,19 @@ $(function() {
     margin: 0 15px; /* inset line similar to News spacing without pseudos */
   }
 
-  /* Gray background for Working Papers and Work in Progress only */
+  /* Gray background for Working Papers, Work in Progress, and Resting Papers */
   #paper-fomo, #paper-emissions, #paper-skills,
-  #work-in-progress ~ .row:not(#discussions ~ .row) {
+  #work-in-progress ~ .row:not(#discussions ~ .row):not(#resting-papers ~ .row) {
     background-color: #f7f7f7;
   }
 
-  /* Override: Zebra striping for Discussions and Resting Papers */
-  #discussions ~ .row.zebra-even,
-  #resting-papers ~ .row.zebra-even {
+  /* Resting papers get gray background */
+  #resting-papers ~ .row {
     background-color: #f7f7f7;
   }
-  #discussions ~ .row:not(.zebra-even),
-  #resting-papers ~ .row:not(.zebra-even) {
+
+  /* Discussions have white background (no zebra striping) */
+  #discussions ~ .row:not(#resting-papers ~ .row) {
     background-color: transparent;
   }
 
@@ -357,9 +357,9 @@ $(function() {
     margin-bottom: 0;
   }
 
-  /* Zebra striping for teaching courses */
-  #teaching .course-item.zebra-even {
-    background-color: #f7f7f7;
+  /* Teaching courses have white background (no zebra striping) */
+  #teaching .course-item {
+    background-color: transparent;
   }
 
   /* Subtle separators between data items */
@@ -776,6 +776,7 @@ $(function() {
       </div>
     </div>
 
+    <br />
     <div class="row">
       <div class="col-md-6 grow">
           <h4><span class="paper-num">2.</span> <a href="https://papers.ssrn.com/abstract=3557231" target="_blank" onclick="gtag('event', 'buttonPaperBuffer-click');">
@@ -799,6 +800,7 @@ $(function() {
       </div>
     </div>
     
+    <br />
     <div class="row">
       <div class="col-md-6 grow">
           <h4><span class="paper-num">1.</span> <a href="https://papers.ssrn.com/abstract=3301344" target="_blank" onclick="gtag('event', 'buttonPaperFireSale-click');">
